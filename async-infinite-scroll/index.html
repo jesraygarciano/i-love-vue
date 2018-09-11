@@ -73,7 +73,7 @@ ul {
   margin-top: 5px;
 }
 
-		
+
 	</style>
 </head>
 <body>
@@ -85,7 +85,7 @@ ul {
 
 			<div class="beer-contain" v-for="beer in beers">
 				<div class="beer-img">
-					<img src="beer.img" height="350" alt="" />
+					<img :src="beer.img" height="350" alt="" />
 				</div>
 				<div class="beer-info">
 					<h2> {{ beer.name }} </h2>
