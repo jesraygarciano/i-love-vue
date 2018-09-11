@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Async Infinite Scroll</title>
+</head>
+<body>
+
+	<div class="app">
+		
+	</div>
+	
+
+	<script>
+		new Vue({
+			// The el property points to the DOM using a query selector
+			el: "app",
+
+			date(){
+				return {
+					bottom: false,
+					beers: []
+				}
+			}
+		});
+	</script>
+
+	<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>
