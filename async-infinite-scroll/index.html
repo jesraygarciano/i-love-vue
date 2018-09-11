@@ -6,53 +6,86 @@
 </head>
 <body>
 
-	<div class="app">
-		
+	<div id="app">
+		<section>
+			<h1>Make yourself some Punk Beers</h1>
+			<div class="loading" v-if="beers.length === 0"> Loading...</div>
+
+			<div class="beer-contain" v-for="beer in beers">
+				<div class="beer-img">
+					<img src="beer.img" height="350" alt="" />
+				</div>
+				<div class="beer-info">
+					<h2> {{ beer.name }} </h2>
+					<p class="bright"> {{ beer.tagline }} </p>
+					<p><span class="bright"> Description: </span> {{ beer.desc }}</p>
+					<p><span class="bright">Tips: </span> {{beer.tips}}</p>
+					<h3 class="bright">Food Pairings</h3>
+
+					<ul>
+						<li v-for="item in beer.food"> {{ item }}</li>
+					</ul>
+
+				</div>
+			</div>
+		</section>
 	</div>
 	
 
-	<script>
-		new Vue({
-			// The el property points to the DOM using a query selector
-			el: "app",
-
-			data(){
-				return {
-					bottom: false,
-					beers: []
-				}
-			},
-
-			method(){
-				bottomVisible(){
-					const scrollY = window.scrollY
-					const visible = document.documentElement.clientHeight
-					const pageHeight = document.documentElement.scrollHeight
-					return bottomOfPage || pageHeight < visbible
-				},
-				addBeer(){
-					axios.get('https://api.punkapi.com/v2/beers/random')
-					.then(response => {
-						let api = response.data[0];
-						let apiInfo = {
-							name: api.name,
-							desc: api.description,
-							img: api.image_url,
-							tips: api.brewers_tips,
-							tagline: api.tagline,
-							food: api.food_pairing
-						};
-						this.beers.push(apiInfo)
-						if (this.bottomVisible()){
-							this.addBeer()
-						}
-					})
-				}
-			}
-		});
-	</script>
-
 	<script src="https://unpkg.com/vue"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+	<script>
+		new Vue({
+		  el: '#app',
+		  data() {
+		    return {
+		      bottom: false,
+		      beers: []
+		    }
+		  },
+		    methods: {
+		    bottomVisible() {
+		      const scrollY = window.scrollY
+		      const visible = document.documentElement.clientHeight
+		      const pageHeight = document.documentElement.scrollHeight
+		      const bottomOfPage = visible + scrollY >= pageHeight
+		      return bottomOfPage || pageHeight < visible
+		    },
+		    addBeer() {
+		      axios.get('https://api.punkapi.com/v2/beers/random')
+		        .then(response => {
+		          let api = response.data[0];
+		          let apiInfo = {
+		            name : api.name,
+		            desc : api.description,
+		            img : api.image_url,
+		            tips : api.brewers_tips,
+		            tagline : api.tagline,
+		            food : api.food_pairing
+		          };
+		          this.beers.push(apiInfo)
+		          if (this.bottomVisible()) {
+		            this.addBeer()
+		          }
+		      })
+		    }
+		  },
+		  watch: {
+		    bottom(bottom) {
+		      if (bottom) {
+		        this.addBeer()
+		      }
+		    }
+		  },
+		  created() {
+		    window.addEventListener('scroll', () => {
+		      this.bottom = this.bottomVisible()
+		    })
+		    this.addBeer()
+		  }
+		})
+	</script>
+
 </body>
 </html>
