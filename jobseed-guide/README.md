@@ -5,4 +5,4 @@ Jobseed is a super simple job search and posting for Developers
 Get the job that you want
 
 ## How does it work
-Lorem ipsum dolor set amit
+Lorem ipsum dolor set amit. Dolor ipsom lorem.
