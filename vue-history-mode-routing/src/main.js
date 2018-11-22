@@ -8,7 +8,7 @@ import HomeComponent from './components/HomeComponent.vue'
 import DashboardComponent from './components/DashboardComponent.vue'
 import PostComponent from './components/PostComponent.vue'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Bootstrap from 'bootstrap/dist/css/bootstrap.min.css';
 
 Vue.config.productionTip = false
 const routes = [
@@ -34,5 +34,6 @@ routes: routes });
 
 new Vue({
   render: h => h(App),
+  Bootstrap,
   router
 }).$mount('#app')
