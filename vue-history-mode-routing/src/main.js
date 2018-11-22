@@ -12,7 +12,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 Vue.config.productionTip = false
 const routes = [
-  {}
+  {
+    path: 'home',
+    name: 'Home',
+    component: HomeComponent    
+  },
+  {
+    path: 'post',
+    name: 'Post',
+    component: PostComponent
+  },
+  {
+    path: 'dashboard',
+    name: 'Dashboard',
+    component: DashboardComponent
+  }
 ];
 
 const router = new VueRouter({ mode: 'history',
