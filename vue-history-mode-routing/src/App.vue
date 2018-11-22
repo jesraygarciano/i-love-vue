@@ -2,9 +2,22 @@
   <div id="app">
     <nav class="navbar navbar-expand-sm bg-light">
       <ul class="navbar-nav">
-        <li class="nav-item"></li>
-        <li class="nav-item"></li>
-        <li class="nav-item"></li>
+        <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'Home'}">
+              Home
+            </router-link>
+        </li>
+
+        <li class="nav-item">
+          <router-link class="nav-link" :to="{ name: 'Dashboard'}">
+                Dashboard
+          </router-link>
+        </li>
+
+        <li class="nav-item">
+          <router-link class="nav-link" :to=" { name: 'Post' }"></router-link>
+              Post
+        </li>
       </ul>
     </nav>
   </div>
