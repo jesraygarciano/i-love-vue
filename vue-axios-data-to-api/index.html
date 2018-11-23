@@ -9,40 +9,26 @@
   <body>
     <div class="container" id="app">
       <h3 class="text-center">Cryptocurrency Pricing</h3>
-      <div class="columns medium-4" >
+
+      <div class="columns medium-4" v-for="(result, index) in results">
         <div class="card">
           <div class="card-section">
-            <p> BTC in USD  </p>
+            <p> {{ index }} </p>
           </div>
           <div class="card-divider">
-            <p>{{ BTCinUSD }}</p>
+            <p>$ {{ result.USD }}</p>
+          </div>
+          <div class="card-section">
+            <p> &#8364 {{ result.EUR }}</p>
           </div>
         </div>
       </div>
+
     </div>
 
-    <div class="columns medium-4">
-        <div class="card">
-            <div class="card-section">
-                <p>BTC in EURO</p>
-            </div>
-
-            <div class="card-divider">
-                {{ BTCinEURO}}
-            </div>
-        </div>
-    </div>
+    
     <script src="https://unpkg.com/vue"></script>
-    <script>
-        const vm = new Vie({
-            el: '#app',
-            // Mock data for the value of BTC in USD
-            data: { 
-                BTCinUSD: 3759.91,
-                BTCinEURO:3166.21
-                }
-        });
-    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="vueApp.js"></script>
   </body>
 </html>
