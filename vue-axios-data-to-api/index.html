@@ -21,13 +21,28 @@
       </div>
     </div>
 
+    <div class="columns medium-4">
+        <div class="card">
+            <div class="card-section">
+                <p>BTC in EURO</p>
+            </div>
+
+            <div class="card-divider">
+                {{ BTCinEURO}}
+            </div>
+        </div>
+    </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
         const vm = new Vie({
             el: '#app',
             // Mock data for the value of BTC in USD
-            data: { BTCinUSD: 3759.91}
+            data: { 
+                BTCinUSD: 3759.91,
+                BTCinEURO:3166.21
+                }
         });
     </script>
+    <script src="vueApp.js"></script>
   </body>
 </html>
