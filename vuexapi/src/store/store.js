@@ -6,23 +6,23 @@ import VueAxios from 'vue-axios'
 Vue.use(Vuex)
 Vue.use(VueAxios, axios)
 
-export default new Vue.Store({
+export default new Vuex.Store({
     state: {
-        coins: []
-    },
-    actions: {
-        loadCoints({commit}){
-            axios
-            .get('http://localhost:4000/results')
-            .then(r => r.data)
-            .then(coins => {
-                console.log(coins)
-            })
-        }
-    },
-    mutations: {
-        SET_COINTS (state,coins) {
-            state.coins = coins
-        }
+    coins: []
+  },
+  actions: {
+    loadCoins ({ commit }) {
+      axios
+        .get('http://localhost:4000/results')
+        .then(r => r.data)
+        .then(coins => {
+        commit('SET_COINS', coins)
+        })
     }
+  },
+  mutations: {
+    SET_COINS (state, coins) {
+      state.coins = coins
+    }
+  }
 })
