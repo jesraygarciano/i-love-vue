@@ -24,3 +24,6 @@ yarn run test
 ```
 yarn run lint
 ```
+
+
+gulp is needed as well
