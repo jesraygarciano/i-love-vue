@@ -1,33 +1,41 @@
 <template>
   <div id="app">
     <div class="card-row">
-      <div 
-      v-for="(card, index) in cards"
-      :key="index"
-      :ref="`card_${index}`"
-      class="card"
-      >
-        <img :src="card.image" alt="" class="card-image">
-
-        <div class="card-footer">
-          <div class="card-title">{{card.title}}</div>
-          <div class="card-text">by
-            <span class="card-author">{{card.author}}</span>
-          </div>
-        </div>
+    <div v-for="(card, index) in cards" 
+        :key="index"
+        :ref="`card_${index}`"
+        @mouseover="hoverCard(index)"
+        @mouseout="hoverCard(-1)"
+        class="card">
+      
+      <img class="card-image" 
+        :class="{'selected': isSelected(index)}"
+        :src="card.image">
+      
+      <div class="card-footer">
+        <h3 class="card-title">{{card.title}}</h3>
+        <p class="card-text">by 
+          <span 
+            class="card-author" 
+            :class="{'selected': isSelected(index)}">
+                {{card.author}}
+          </span>
+        </p>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+
 import './assets/style.css';
 
 export default {
   name: 'app',
   data() {
     return {
+      selectedCard: -1,
       cards: [
         {
          title: 'Gallery', 
@@ -57,13 +65,19 @@ export default {
       ]
     }
   },
-  components: {
-    // HelloWorld
+  methods: {
+    hoverCard(selectedIndex) {
+      this.selectedCard = selectedIndex
+    },
+    isSelected(cardIndex) {
+      return this.selectedCard === cardIndex
+    }
   }
 }
 </script>
 
-<style>
+<!--
+  <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -73,3 +87,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+-->
