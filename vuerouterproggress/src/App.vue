@@ -7,11 +7,15 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import AboutComponent from './components/AboutComponent.vue'
+import ContactComponent from './components/ContactComponent.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HelloWorld,
+    AboutComponent,
+    ContactComponent
   }
 }
 </script>
