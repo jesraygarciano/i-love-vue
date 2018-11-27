@@ -1,7 +1,7 @@
 // ContactComponent.vue
 
 <template>
-  <p>ContactComponent Works!!</p>
+  <p>Contact Component Works!!</p>
 </template>
 <script>
 export default {
