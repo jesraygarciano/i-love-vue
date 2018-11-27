@@ -1,27 +1,10 @@
+// ContactComponent.vue
+
 <template>
-<div>
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="h3">
-                    <div class="btn btn-success p-2 m-3">
-                        Pikopoko
-                    </div>
-                </h3>
-            </div>
-        </div>
-    </div>
-</div>
+  <p>ContactComponent Works!!</p>
 </template>
-
 <script>
-
 export default {
-    
+    name: 'ContactComponent'
 }
-
 </script>
-
-<style>
-    
-</style>
