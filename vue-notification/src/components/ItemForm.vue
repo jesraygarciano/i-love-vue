@@ -37,8 +37,12 @@
         },
         methods: {
             addItem() {
-                
+                let uri = "http://localhost:8000/api/item/create";
+                this.axios.post(uri, this.item).then((response) => {
+                    console.log(response.data);
+                });
             }
         }
     }
+    
 </script>
