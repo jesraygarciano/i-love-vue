@@ -36,13 +36,13 @@
             }
         },
         methods: {
-            addItem() {
-                let uri = "http://localhost:8000/api/item/create";
-                this.axios.post(uri, this.item).then((response) => {
-                    console.log(response.data);
-                });
-            }
+        addItem() {
+            let uri = 'http://notify.test/api/item/create';
+            this.axios.post(uri, this.item).then((response) => {
+                this.$toasted.show(response.data.success);
+            });
+        }
         }
     }
-    
+
 </script>
