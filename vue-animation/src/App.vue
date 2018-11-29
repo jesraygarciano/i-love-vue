@@ -14,7 +14,7 @@
       
       <div class="card-footer">
         <h3 class="card-title">{{card.title}}</h3>
-        <p class="card-text">by 
+        <p class="card-text">
           <span 
             class="card-author" 
             :class="{'selected': isSelected(index)}">
