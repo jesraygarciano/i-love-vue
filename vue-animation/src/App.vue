@@ -7,11 +7,11 @@
         @mouseover="hoverCard(index)"
         @mouseout="hoverCard(-1)"
         class="card">
-      
+
       <img class="card-image" 
         :class="{'selected': isSelected(index)}"
         :src="card.image">
-      
+
       <div class="card-footer">
         <h3 class="card-title">{{card.title}}</h3>
         <p class="card-text">
