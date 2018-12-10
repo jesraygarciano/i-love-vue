@@ -79,6 +79,11 @@ new Vue({
       newHTML += this.originalText.substr(this.typedText.length)
 
       return newHTML
+    },
+    sortedScores: function() {
+      return this.scores.sort((a, b) => {
+        return a.wpm + a.typos - (b.wpm + b.typos);
+      });
     }
   },
   watch: {
