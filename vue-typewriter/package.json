@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "httpster": "^1.0.3"
+    "httpster": "^1.1.3"
   }
 }

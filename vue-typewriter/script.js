@@ -7,23 +7,55 @@ new Vue({
     originalText: PARAGRAPH,
     typedText: '',
     typoIndex: -1,
-    timer: 60
+    timer: 60,
+    typing: false,
+    timeInterval: {},
+    typos: 0,
+    scores: []
   },
   methods: {
     startTypingSpeed: function () {
-
+        this.typing = true
+        this.startTimer()
     },
     startTimer: function () {
-      setInterval(function () {
+      this.timeInterval = setInterval(() => {
         if (this.timer === 0) {
-          this.endTypingSpeed()
+          this.endTypingSpeed();
+          this.calculateScore();
           return;
         }
-        this.timer--
-      }, 1000)
+        this.timer--;
+      }, 1000);
     },
     endTypingSpeed: function () {
+        clearInterval(this.timerInterval);
+        this.typing = false;
+        this.timer = 60;
+        document.activeElement.blur();
+    },
+    reset: function() {
+      clearInterval(this.timerInterval);
+      this.typing = false;
+      this.typoIndex = -1;
+      this.typedText = '';
+      this.timer = 60;
+    },
+    calculateScore: function() {
+      let score = {};
+      let correctlyTypedText = this.typedText
+      if (this.typoIndex != -1) {
+        correctlyTypedText = this.originalText.substring(0, this.typoIndex);
+      }
+      let words = correctlyTypedText.split('').length;
+      score = {
+        wpm: words,
+        typos: this.typos
+      };
 
+      // reset typos
+      this.typos = 0;
+      this.scores.push(score);
     }
   },
   computed: {
@@ -51,9 +83,13 @@ new Vue({
   },
   watch: {
     typedText: function (value) {
+      if(!this.typing) {
+        this.startTypingSpeed()
+      }
       for (let i = 0; i < value.length; i++) {
         if (value[i] !== this.originalText[i]) {
           this.typoIndex = i;
+          this.typos++;
           break;
         }
         this.typoIndex = -1;

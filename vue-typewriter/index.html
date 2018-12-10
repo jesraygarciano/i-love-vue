@@ -12,6 +12,15 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
   <style>
+    /* Code commented out for brevity */
+    .timer {
+      font-size: 100px;
+      text-align: center;
+      color: white;
+      border-radius: 100;
+      background-color: white
+    }
+
     .correct {
       color: rgb(63, 81, 181);
       font-size: 22px;
@@ -41,6 +50,20 @@
                     rows="10"
                     placeholder="start typing here"
                     v-model="typedText"></textarea>
+        </div>
+      </div>
+      <div class="col-4 display-2 text-danger">
+        <div class="btn btn-primary btn-block" @click="reset()">Reset</div>
+        <div class="timer mt-3">
+            {{timer}}
+        </div>
+        <div class="scoreboard mt-3">
+          <h2>Scoreboard</h2>
+          <div class="scores">
+            <div class="alert-info mt-2">1. 20WPM, 45 Typos</div>
+            <div class="alert-info mt-2">2. 20WPM, 45 Typos</div>
+            <div class="alert-info mt-2">3. 20WPM, 45 Typos</div>
+          </div>
         </div>
       </div>
     </div>
