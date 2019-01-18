@@ -1,4 +1,7 @@
 module.exports = {
+  modules: [
+    ['storyblok-nuxt', {accessToken: 'PREVIEW_TOKEN', cacheProvider: 'memory'}]
+  ],
   /*
   ** Headers of the page
   */
