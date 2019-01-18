@@ -10,7 +10,11 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Cebu news updates yo' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { 
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,700'
+      }
     ]
   },
   /*
