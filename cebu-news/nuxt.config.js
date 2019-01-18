@@ -1,6 +1,6 @@
 module.exports = {
   modules: [
-    ['storyblok-nuxt', {accessToken: 'PREVIEW_TOKEN', cacheProvider: 'memory'}]
+    ['storyblok-nuxt', {accessToken: 'fulWMGocrrLrxAiWu1Cirgtt', cacheProvider: 'memory'}]
   ],
   /*
   ** Headers of the page
@@ -18,6 +18,9 @@ module.exports = {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,700'
       }
+    ],
+    plugins: [
+      '~/plugins/components'
     ]
   },
   /*
