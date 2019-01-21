@@ -1,2 +1,2 @@
 # My Vue Projects
-Docvuementation coming soon/
+Here are my exercises in VueJS, a javascript framework that is fast, light and easy to understand.
