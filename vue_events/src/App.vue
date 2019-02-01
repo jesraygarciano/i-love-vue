@@ -1,14 +1,42 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    </div> -->
+    <!-- <router-view/> -->
+    <p>{{count}}</p>
+    <button v-on:click="goFast"> gotta go fast</button>
+    <p @click="greet('Wait')">wati</p>
+    <p @click="greet('Hi')">Hi</p>
   </div>
 </template>
 
-<style lang="scss">
+<script>
+export default {
+  data() {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+    goFast() {
+        this.count++;   
+    },
+    greet(value) {
+      alert(value);
+    }
+  }
+}
+</script>
+<style lang="scss" scoped>
+
+button {
+  padding: 1rem;
+  margin: 1rem;
+  background: green;
+  color: #FFF;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
