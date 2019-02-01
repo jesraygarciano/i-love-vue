@@ -7,8 +7,14 @@
     <!-- <router-view/> -->
     <p>{{count}}</p>
     <button v-on:click="goFast"> gotta go fast</button>
-    <p @click="greet('Wait')">wati</p>
+    <p @click.prevent="greet('Wait')">wati</p>
     <p @click="greet('Hi')">Hi</p>
+
+    <br />
+    <hr />
+    <br />
+
+    <a @click.stop="doThis"></a>
   </div>
 </template>
 
