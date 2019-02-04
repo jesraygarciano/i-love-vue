@@ -11,7 +11,7 @@
       <img class="card-image" 
         :class="{'selected': isSelected(index)}"
         :src="card.image">
-
+      <!--update here-->
       <div class="card-footer">
         <h3 class="card-title">{{card.title}}</h3>
         <p class="card-text">
