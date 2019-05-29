@@ -15,6 +15,7 @@
     <br />
 
     <a @click.stop="doThis"></a>
+
   </div>
 </template>
 
@@ -40,7 +41,7 @@ export default {
 button {
   padding: 1rem;
   margin: 1rem;
-  background: green;
+  background: rgb(87, 155, 87);
   color: #FFF;
 }
 #app {
